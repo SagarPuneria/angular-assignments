@@ -1,0 +1,24 @@
+<br>
+<h2>Employees</h2>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Employee ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Salary</th>
+      <th scope="col">DOB</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of emplist; let i = index" appColor>
+      <td>{{ emp.employeeID }}</td>
+      <td>{{ emp.firstName }}</td>
+      <td>{{ emp.lastName }}</td>
+      <td>{{ emp.salary | currency}}</td>
+      <td>{{ emp.DOB | date: 'mediumDate'| uppercase}}</td>
+      <td>{{ emp.email }}</td>
+    </tr>
+  </tbody>
+</table>

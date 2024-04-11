@@ -1,0 +1,20 @@
+<br>
+<h2>Employees data from API</h2>
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Employee ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employeesResponse.data; let i=index">
+            <td>{{employee.id}}</td>
+            <td>{{employee.employee_name}}</td>
+            <td>{{employee.employee_salary}}</td>
+            <td>{{employee.employee_age}}</td>
+        </tr>
+    </tbody>
+</table>
