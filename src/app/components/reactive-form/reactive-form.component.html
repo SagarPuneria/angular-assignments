@@ -1,0 +1,75 @@
+<h3>Employee Registration form</h3>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <div class="form-group col-md-9">
+            <input type="text" class="form-control" id="inputUser" placeholder="Full Name"
+                [ngClass]="{ 'is-invalid': userFormControls['name'].errors}" formControlName="name">
+            <div *ngIf="userFormControls['name'].errors" class="invalid-feedback">
+                <div *ngIf="userFormControls['name'].errors['required']">Full name is required and must be valid name</div>
+            </div>
+        </div>
+        <div class="form-group col-md-9">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email"
+                [ngClass]="{ 'is-invalid': userFormControls['email'].errors}" formControlName="email">
+            <div *ngIf="userFormControls['email'].errors" class="invalid-feedback">
+                <div *ngIf="userFormControls['email'].errors['required']">Email is required</div>
+                <div *ngIf="userFormControls['email'].errors['email']">Enter a valid email address, e.g., john@example.com</div>
+            </div>
+        </div>
+        <div class="form-group col-md-9">
+            <input type="text" class="form-control" id="inputAddress" placeholder="Address"
+                [ngClass]="{ 'is-invalid': userFormControls['address'].errors}" formControlName="address">
+            <div *ngIf="userFormControls['address'].errors" class="invalid-feedback">
+                <div *ngIf="userFormControls['address'].errors['required']">Address is required</div>
+            </div>
+            </div>
+        <div class="form-group col-md-9">
+            <input type="text" class="form-control" id="inputCity" placeholder="City"
+                [ngClass]="{ 'is-invalid': userFormControls['city'].errors}" formControlName="city">
+            <div *ngIf="userFormControls['city'].errors" class="invalid-feedback">
+                <div *ngIf="userFormControls['city'].errors['required']">City is required</div>
+            </div>
+        </div>
+        <div class="form-group col-md-9">
+            <input type="text" class="form-control" id="inputPhone" placeholder="Phone No."
+            formControlName="phone" [ngClass]="{ 'is-invalid': userFormControls['phone'].errors}">
+            <div *ngIf="userFormControls['phone'].errors" class="invalid-feedback">
+                <div *ngIf="userFormControls['phone'].errors['required']">Phone is required</div>
+                <!-- <div *ngIf="userFormControls['phone'].errors['minlength']">Please enter atleast 10 characters</div> -->
+                <!-- <div *ngIf="userFormControls['phone'].errors['maxlength']">address should not cross 12 characters</div> -->
+                <div *ngIf="userFormControls['phone'].errors['minlength'] || userFormControls['phone'].errors['maxlength']">Phone number must be minimum 10 digits and maximum 12 digit in length</div>
+                </div>
+        </div>
+        <div class="form-group col-md-9">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password"
+                formControlName="password" [ngClass]="{ 'is-invalid': userFormControls['password'].errors}" />
+            <div *ngIf="userFormControls['password'].errors" class="invalid-feedback">
+                <div *ngIf="userFormControls['password'].errors['required']">Password is required</div>
+                <div *ngIf="userFormControls['password'].errors['minlength']">Password must be at least 6 characters</div>
+            </div>
+        </div>
+        <div class="form-group col-md-9">
+            <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password"
+                formControlName="confirmPassword" [ngClass]="{ 'is-invalid': userFormControls['confirmPassword'].errors}" />
+            <div *ngIf="userFormControls['confirmPassword'].errors" class="invalid-feedback">
+                <div *ngIf="userFormControls['confirmPassword'].errors['required']">Confirm password is required</div>
+                <div *ngIf="userFormControls['confirmPassword'].errors['mustMatch']">Password Mismatch</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck"
+                [ngClass]="{ 'is-invalid': userFormControls['disclaimer'].errors}" formControlName="disclaimer">
+            <label class="form-check-label" for="gridCheck">
+                Agree with terms and conditions
+            </label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+<div>
+    userform TS variable binding {{userForm.value | json}}
+</div>
