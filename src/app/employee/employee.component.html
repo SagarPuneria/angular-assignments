@@ -1,0 +1,64 @@
+<br>
+<h2>Employees</h2>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Employee ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Salary</th>
+      <th scope="col">DOB</th>
+      <th scope="col">Email</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <ng-container *ngIf="showEdit; then template1; else template2"></ng-container>
+      <ng-template #template1>
+        <td>
+          <span>{{ emp.employeeID }}</span>
+        </td>
+        <td>
+          <span>{{ emp.firstName }}</span>
+        </td>
+        <td>
+          <span>{{ emp.lastName }}</span>
+        </td>
+        <td>
+          <span>{{ emp.salary }}</span>
+        </td>
+        <td>
+          <span>{{ emp.DOB }}</span>
+        </td>
+        <td>
+          <span>{{ emp.email }}</span>
+        </td>
+      </ng-template>
+      <ng-template #template2>
+        <td>
+          <input type="text" placeholder="enter the value" [(ngModel)]="emp.employeeID" />
+        </td>
+        <td>
+          <input type="text" placeholder="enter the value" [(ngModel)]="emp.firstName" />
+        </td>
+        <td>
+          <input type="text" placeholder="enter the value" [(ngModel)]="emp.lastName" />
+        </td>
+        <td>
+          <input type="text" placeholder="enter the value" [(ngModel)]="emp.salary" />
+        </td>
+        <td>
+          <input type="text" placeholder="enter the value" [(ngModel)]="emp.DOB" />
+        </td>
+        <td>
+          <input type="text" placeholder="enter the value" [(ngModel)]="emp.email" />
+        </td>
+      </ng-template>
+      <td>
+        <button *ngIf="showEdit" class="btn btn-primary" (click)="EditEmp()">Edit User</button>
+        <button *ngIf="!showEdit" class="btn btn-success" (click)="UpdateEmp()">Update User</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
