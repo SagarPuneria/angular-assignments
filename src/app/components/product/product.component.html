@@ -1,0 +1,21 @@
+<p>product works!</p>
+<section class="product-container">
+    <table class="table  table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product Price </th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of productDetails;">
+                <td>{{product.productName | uppercase }}</td>
+                <td>{{product.productPrice }}</td>
+                <td>
+                    <button class="btn btn-primary" (click)="navigateToProductDetails(product)">View Detail</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
