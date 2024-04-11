@@ -1,0 +1,49 @@
+<h3>Employee Registration form</h3>
+<form [formGroup]="userForm">
+    <div class="form-group">
+        <div class="form-group col-md-9">
+            <input type="text" class="form-control" id="inputUser" placeholder="Full Name"
+                [ngClass]="{ 'is-invalid': userFormControls['name'].errors}" formControlName="name">
+        </div>
+        <div class="form-group col-md-9">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email"
+                [ngClass]="{ 'is-invalid': userFormControls['email'].errors}" formControlName="email">
+        </div>
+        <div class="form-group col-md-9">
+            <input type="text" class="form-control" id="inputAddress" placeholder="Address"
+                [ngClass]="{ 'is-invalid': userFormControls['address'].errors}" formControlName="address">
+        </div>
+        <div class="form-group col-md-9">
+            <input type="text" class="form-control" id="inputCity" placeholder="City"
+                [ngClass]="{ 'is-invalid': userFormControls['city'].errors}" formControlName="city">
+        </div>
+        <div class="form-group col-md-9">
+            <input type="text" class="form-control" id="inputPhone" placeholder="Phone No."
+                [ngClass]="{ 'is-invalid': userFormControls['phone'].errors}" formControlName="phone">
+        </div>
+        <div class="form-group col-md-9">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password"
+                [ngClass]="{ 'is-invalid': userFormControls['password'].errors}" formControlName="password">
+        </div>
+        <div class="form-group col-md-9">
+            <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password"
+                formControlName="confirmPassword"
+                [ngClass]="{ 'is-invalid': userFormControls['confirmPassword'].errors}" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck"
+                [ngClass]="{ 'is-invalid': userFormControls['disclaimer'].errors}" formControlName="disclaimer">
+            <label class="form-check-label" for="gridCheck">
+                Agree with terms and conditions
+            </label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign up</button>
+</form>
+
+<!-- <div>
+    userform TS variable binding {{userForm.value | json}}
+</div> -->
